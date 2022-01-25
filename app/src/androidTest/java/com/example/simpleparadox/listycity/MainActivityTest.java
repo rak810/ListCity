@@ -62,7 +62,6 @@ public class MainActivityTest{
         solo.enterText((EditText) solo.getView(R.id.editText_name), "Edmonton");
         solo.clickOnButton("CONFIRM"); //Select CONFIRM Button
         solo.clearEditText((EditText) solo.getView(R.id.editText_name)); //Clear the EditText
-
         /* True if there is any text: Edmonton on the screen, wait at least 2 seconds and
         find minimum one match. */
         assertTrue(solo.waitForText("Edmonton", 1, 2000));
@@ -91,6 +90,17 @@ public class MainActivityTest{
         assertEquals("Edmonton", city);
     }
 
+    @Test
+    public void checkClickOnCiyListItem(){
+        // 1707074
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.clickOnButton("ADD CITY");
+        solo.enterText((EditText) solo.getView(R.id.editText_name), "Edmonton");
+        solo.clickOnButton("CONFIRM");
+        solo.waitForText("Edmonton", 1, 2000);
+        solo.clickInList(0);
+        solo.assertCurrentActivity("Wrong Activity", ShowActivity.class);
+    }
     /**
      * Close activity after each test
      * @throws Exception
