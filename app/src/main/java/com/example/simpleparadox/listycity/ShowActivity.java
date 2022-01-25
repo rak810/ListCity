@@ -1,7 +1,7 @@
 package com.example.simpleparadox.listycity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+// 1707074
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
